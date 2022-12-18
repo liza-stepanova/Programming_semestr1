@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+//формирование массива из цифр числа n
+int *makeArray(int n, int len) {
+    int *array = (int *) malloc(len * sizeof(int));
+    for (int i = len - 1; i >= 0; i--) {
+        array[i] = n % 10;
+        n /= 10;
+    }
+    return array;
+}
+
+//удаление символа
+void del_symbol(char *a)
+{
+    for (int i = 0; a[i] != '\0'; i++)
+        a[i] = a[i + 1];
+}
+
+void del_spaces(char *str)
+{
+//  пока строка не закончится:
+    while (*str != '\0')
+    {
+//      более двух пробелов
+        if (*str == ' ' && *(str + 1) == ' ')
+        {
+            del_symbol(str + 1);
+            del_spaces(str);
+            return;
+        }
+//      после открывающегося парного знака препинания
+        else if ((*str == '(' || *str == '[' || *str == '{' || *str == '"') && *(str + 1) == ' ')
+        {
+            del_symbol(str + 1);
+            del_spaces(str);
+            return;
+        }
+        str++;
+    }
+}
+
+int main() {
+    // 3 пункт
+    int n;
+    printf("Введите число: ");
+    scanf("%d", &n);
+    int len = (int)log10((double)n) + 1;
+    int *array = makeArray(n, len);
+    for (int i = 0; i < len; i++){
+        printf("%d ", array[i]);
+    }
+
+    // 5 пункт
+    char str[50];
+    fgets(str, sizeof(str), stdin);
+    del_spaces(str);
+    puts(str);
+    return 0;
+}
