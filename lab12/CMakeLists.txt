@@ -3,4 +3,4 @@ project(lab10 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(lab10 main.c file1.txt file2.txt)
+add_executable(lab10 main.c)
