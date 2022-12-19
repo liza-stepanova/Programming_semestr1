@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int a;
+    scanf("%d", &a);
+    bool x1, x2;
+    x1 = (-77 - a) & (1 << 31); // a > -77
+    x2 = (1 - a) & (1 << 31); // a < 1
+    printf("%d\n", (x1 && !x2)); // -77 < a < 1
+    int b;
+    scanf("%d", &b);
+    int bit = 1 & (b << 18);
+    printf("%d", bit);
+    return 0;
+}
