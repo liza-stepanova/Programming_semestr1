@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+//объявление перечисления для 1 задания
+enum lamp {
+    incandescent_lamps, LED, halogen, metal_halide
+} lump;
+
+//объявление структуры для 2 задания
+struct rectangle {
+    int height;
+    int width;
+} rectangle1;
+
+//объявление объединения для 3 задания
+union mp3 {
+    unsigned short flags;
+    struct {
+        unsigned short play: 1;
+        unsigned short pause: 1;
+        unsigned short record: 1;
+    };
+} mp3;
+
+int main() {
+    lump = halogen;
+    printf("%d", lump);
+//    switch (lump) {
+//        case incandescent_lamps:
+//            printf("0");
+//            break;
+//        case LED:
+//            printf("1");
+//            break;
+//        case halogen:
+//            printf("2");
+//            break;
+//        case metal_halide:
+//            printf("3");
+//            break;
+//    }
+
+
+//  ввод параметров прямоугольника
+    scanf("%d", rectangle1.height);
+    scanf("%d", rectangle1.width);
+
+    printf("%d\n", sizeof rectangle1);
+
+    int perimeter = 2 * (rectangle1.height + rectangle1.width);
+    printf("%d", perimeter);
+
+
+//  ввод числа в 16-ричной сс
+    scanf("%x", &mp3.flags);
+
+//  проверка значений и вывод результата
+    if (mp3.play) printf("play - on\n");
+    else printf("play - off\n");
+
+    if (mp3.pause) printf("pause - on\n");
+    else printf("pause - off\n");
+
+    if (mp3.record) printf("record - on\n");
+    else printf("record - off\n");
+
+    return 0;
+}
