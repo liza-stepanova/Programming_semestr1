@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void strcat2(char *str1, char *str2) {
+    int i;
+    int j = strlen(str1) - 1;
+    for (i = 0; str2[i] != '\0'; i++) {
+        str1[i + j] = str2[i];
+    }
+    str1[i + j] = '\0';
+    return;
+}
+
+int main() {
+//  создаем и вводим первую строку
+    int n1;
+    scanf("%d\n", &n1);
+    char str1[n1];
+    fgets(str1, n1 + 1, stdin);
+
+//  создаем и вводим вторую строку
+    int n2;
+    scanf("%d\n", &n2);
+    char str2[n2];
+    fgets(str2, n2 + 1, stdin);
+
+
+//  сложение двух строк
+    printf("%s\n", strcat(str1, str2));
+    int n1 = 80, n2 = 5;
+    char *str1 = (char *) malloc(n1);
+    fgets(str1, n1 + 1, stdin);
+    char *str2 = (char *) malloc(n2);
+    fgets(str2, n2 + 1, stdin);
+    char *result = (char *) malloc(n1 + n2 + 1);
+    strcat2(str1, str2);
+    puts(str1);
+
+
+//  сравнение первых n символов двух строк
+    int n;
+    int compare;
+    scanf("%d\n", &n);
+    compare = strncmp(str1, str2, n);
+//  функция strncmp(str1, str2, n) возвращает
+//  отрицательное число, если str1 < str2
+//  положительное число, если str1 > str2
+//  0, если str1 = str2
+    if (compare < 0) printf("str1 < str2");
+    else if (compare > 0) printf("str1 > str2");
+    else printf("=");
+
+
+//  копирование str1 в str_copy
+    char str_copy[n1];
+    strcpy(str_copy, str1);//
+    puts(str_copy);
+
+
+//  поиск в строке первого вхождения указанного символа
+    char *tmp;
+//  char symbol;
+//  scanf("%c\n", &symbol);
+//  tmp = strchr(str1, symbol);
+    tmp = strchr(str1, 't');
+    printf("%d\n", tmp - str1 + 1);
+
+
+//  длина отрезка str1, содержащего символы из множества символов, входящих в str2
+    int count = 0;
+    char *p;
+    for (p = str1; *p; ++p) {
+        if (strchr(str2, *p)) {
+            printf("%c", *p);
+            count++;
+        }
+    }
+    printf("\n%d", count);
+
+    return 0;
+}
