@@ -1,3 +1,0 @@
-/Users/Elena/ccccc/cmake-build-debug/CMakeFiles/ccccc.dir
-/Users/Elena/ccccc/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/Elena/ccccc/cmake-build-debug/CMakeFiles/rebuild_cache.dir
