@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // 1 пункт
+    char str[50];
+    int count_number = 0, count_upper = 0, count_lower = 0;
+    printf("Введите строку: ");
+    fgets(str, sizeof(str), stdin);
+    for (int i = 0; i < sizeof(str); i++){
+        if (str[i] >= '0' && str[i] <= '9') count_number++;
+        if (str[i] >= 'A' && str[i] <= 'Z') count_upper++;
+        if (str[i] >= 'a' && str[i] <= 'z') count_lower++;
+    }
+    printf("Количество цифр: %d\nКоличество заглавных букв: %d\nКоличество строчных букв: %d\n", count_number, count_upper, count_lower);
+
+    // 3 пункт
+    char num[50];
+    printf("Введите строку из цифр: ");
+    fgets(num, sizeof(num), stdin);
+    printf("%d", atoi(num));
+
+    // 5 пункт
+    int month;
+    printf("Введите количество месяцев: ");
+    scanf("%d", &month);
+
+    double start;
+    printf("Введите начальную сумму: ");
+    scanf("%lf", &start);
+
+    double percent;
+    printf("Введите процентную ставку: ");
+    scanf("%lf", &percent);
+
+    double result = start;
+    for (int i = 1; i <= month; i++){
+        result += start * percent / 100;
+        printf("%d) %lf\n", i, result);
+    }
+
+    return 0;
+}
+
+
