@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    int a;
+    char s[100];
+    int f = 2147483647 + 18;//-2147483631
+    printf("Введите целое число: %d", f);
+    scanf("%d", &a);
+    printf("%d\n", a);
+    printf("Введите строку: ");
+    scanf("%s", &s);
+    printf("%s", s);
+    return 0;
+}
