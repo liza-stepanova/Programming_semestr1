@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+double myfunc_1(double a) {
+    double Z1;
+    Z1 = (((a + 2) / sqrt(2 * a)) - (a / (sqrt(2 * a) + 2)) + 2 / (a - sqrt(2 * a))) * (((sqrt(a)) - sqrt(2)) / (a + 2));
+    return Z1;
+}
+double myfunc_2(double a) {
+    double Z2;
+    Z2 =  1 / (sqrt(a) + sqrt(2));
+    return Z2;
+}
+int main() {
+    double z1, z2, x;
+    scanf("%lf", &x);
+    if (x > 0) {
+        z1 = myfunc_1(x);
+        z2 = myfunc_2(x);
+        printf("%f\n%f", z1, z2);
+    } else {
+        printf("Число не подходит");
+    }
+    return 0;
+}
