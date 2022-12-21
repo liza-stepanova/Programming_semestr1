@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+//1000 1001 1002 1003
+int main() {
+    int array[4];
+    int *p = array;
+    for(int i = 0 ; i < 4; i++) {
+        scanf("%d", &array[i]);
+    }
+    for(int i = 0 ; i < 4; i++) {
+        printf("%d ", *(p+i));
+    }
+
+    int *ptr;
+    int n;
+    scanf("%d", &n);
+    // функция malloc назначает один блок запрошенной памяти
+    ptr = malloc(n * sizeof(*ptr));
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &ptr[i]);
+    }
+    for(int i = 0; i < n; i++) {
+        printf("%d ", ptr[i]);
+    }
+    // свобождает динамическую память
+    free(ptr);
+    return 0;
+}
