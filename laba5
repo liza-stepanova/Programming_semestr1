@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // задаем размер квадратичной матрицы
+    printf("Размер:\n");
+    int size;
+    scanf("%d", &size);
+
+    // выделяем память для двух двумерных массивов
+    int (*matrix1)[size];
+    matrix1 = (int (*)[size]) malloc(sizeof(*matrix1) * size);
+    int (*matrix2)[size];
+    matrix2 = (int (*)[size]) malloc(sizeof(*matrix2) * size);
+
+    // ввод первой матрицы
+    printf("Первая матрица:\n");
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            int tmp_value;
+            scanf("%d", &tmp_value);
+            matrix1[i][j] = tmp_value;
+        }
+    }
+
+    // ввод второй матрицы
+    printf("Вторая матрица:\n");
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            int tmp_value;
+            scanf("%d", &tmp_value);
+            matrix2[i][j] = tmp_value;
+        }
+    }
+
+    // выделяем память для матрицы, которая получится в результате
+    int (*result_matrix)[size];
+    result_matrix = (int (*)[size]) malloc(sizeof(*result_matrix) * size);
+
+    // выполняем перемножение
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            result_matrix[i][j] = 0;
+            for (int k = 0; k < size; k++) {
+                result_matrix[i][j] += (matrix1[i][k] * matrix2[k][j]);
+            }
+        }
+    }
+
+    // выводим результат на экран
+    printf("Результат:\n");
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%d ", result_matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
